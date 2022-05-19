@@ -1,0 +1,33 @@
+﻿@model SpinutechCodeTest.Models.Palindrome
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome To My Spinutech Code Test!</h1>
+    <br />
+    <h3>Exercise 6</h3>
+    <p>
+        Please implement a function that checks whether a positive number is a palindrome or not. For
+        example, 121 is a palindrome, but 123 is not.
+    </p>
+    <br /><br />
+    @using (Html.BeginForm("Convert", "Home", FormMethod.Post))
+    {
+        string result = "";
+        if (Model != null)
+        {
+            if(!Model.isPalindrome)
+                result = "NOT";
+
+            @Html.Label(result, Model.input.ToString() + " is " + result + " a palindrome ");
+        }
+        <br /><br />
+        @Html.TextBoxFor(model => model.input, new { @type = "number", @min = "0" })
+
+
+        <button type="submit">Convert!</button>
+
+    }
+
+</div>
